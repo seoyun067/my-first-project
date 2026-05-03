@@ -2,49 +2,77 @@ import React from 'react';
 
 export default function Home() {
   return (
-    <main className="min-h-screen bg-[#0f172a] text-slate-200 flex items-center justify-center p-6 relative overflow-hidden">
-      {/* 배경 장식 (밤하늘 느낌) */}
-      <div className="absolute top-[-10%] left-[-10%] w-[40%] h-[40%] bg-purple-900/20 rounded-full blur-[120px]" />
-      <div className="absolute bottom-[-10%] right-[-10%] w-[40%] h-[40%] bg-blue-900/20 rounded-full blur-[120px]" />
-
-      <div className="max-w-md w-full z-10">
-        {/* 상단 브랜드네임 */}
-        <p className="text-center text-xs tracking-[0.3em] text-purple-400 mb-8 font-light italic">
-          BAMTI ARCHIVE
+    <main className="min-h-screen bg-[#fef2f2] p-6 md:p-12 flex flex-col items-center gap-8 font-sans text-[#4a3f3f]">
+      {/* 메인 프로필 카드 */}
+      <section className="bg-white rounded-2xl shadow-sm border border-[#fee2e2] w-full max-w-2xl p-10 flex flex-col items-center relative overflow-hidden">
+        <div className="absolute top-0 left-0 w-full h-2 bg-[#fbcfe8]"></div>
+        
+        {/* 상단 프로필 원형 아이콘 */}
+        <div className="w-24 h-24 bg-[#fff1f2] rounded-full mb-6 border-2 border-[#fce7e7] flex items-center justify-center shadow-inner">
+          <span className="text-4xl text-[#fb7185]">✨</span>
+        </div>
+        
+        <p className="text-[11px] tracking-[0.3em] text-[#f472b6] mb-3 uppercase font-bold">
+          Welcome to my archive
         </p>
+        <h1 className="text-4xl font-extrabold mb-1 tracking-tight text-[#332d2d]">김서윤</h1>
+        <p className="text-sm text-[#a8a2a2] tracking-widest mb-8">KIM SEO YOON</p>
 
-        {/* 메인 비주얼 카드 (영화 프레임 느낌) */}
-        <div className="bg-white/5 backdrop-blur-md border border-white/10 rounded-2xl p-8 shadow-2xl relative group">
-          <div className="absolute -top-3 -right-3 w-12 h-12 border-t-2 border-r-2 border-purple-500/50 rounded-tr-xl" />
-          <div className="absolute -bottom-3 -left-3 w-12 h-12 border-b-2 border-l-2 border-purple-500/50 rounded-bl-xl" />
-
-          {/* 프로필 정보 */}
-          <div className="text-center space-y-6">
-            <h1 className="text-4xl font-light tracking-tight">
-              <span className="text-white">김서윤</span>
-            </h1>
-            
-            <div className="inline-block px-4 py-1 rounded-full border border-purple-500/30 text-xs text-purple-300">
-              Movies & Stories
-            </div>
-
-            <div className="h-[1px] w-12 bg-gradient-to-r from-transparent via-purple-500 to-transparent mx-auto my-8" />
-
-            <blockquote className="space-y-4">
-              <p className="text-lg leading-relaxed font-serif italic text-slate-300">
-                "미워하는 마음은<br/>가릴 수 없는 게 있지"
-              </p>
-            </blockquote>
-          </div>
+        {/* 좋아하는 것 태그 */}
+        <div className="flex flex-wrap justify-center gap-3 mb-10">
+          {['🎬 영화', '🍜 마라탕', '📚 일본문학', '🎨 마케팅'].map((fav) => (
+            <span key={fav} className="px-5 py-2 bg-[#fff1f2] text-[#e11d48] rounded-full text-xs font-medium border border-[#ffe4e6]">
+              {fav}
+            </span>
+          ))}
         </div>
 
-        {/* 하단 푸터 */}
-        <footer className="mt-12 text-center">
-          <p className="text-[10px] text-slate-500 tracking-widest uppercase">
-            © 2026 Seoyoon. Directed by Night.
+        {/* 시그니처 문구 박스 */}
+        <div className="w-full py-5 bg-[#fffafb] border-y border-[#fce7e7] text-center">
+          <p className="text-[#db2777] font-serif italic text-lg">
+            "미워하는 마음은 가릴 수 없는 게 있지"
           </p>
-        </footer>
+        </div>
+      </section>
+
+      {/* 하단 상세 정보 카드 (2단 레이아웃) */}
+      <div className="flex flex-col md:flex-row gap-6 w-full max-w-2xl">
+        {/* 전공 카드 */}
+        <section className="flex-1 bg-white rounded-2xl shadow-sm border border-[#fee2e2] p-8 transition-transform hover:scale-[1.02]">
+          <div className="flex items-center gap-2 mb-6">
+            <span className="p-2 bg-[#fff1f2] rounded-lg">🎓</span>
+            <h2 className="text-[10px] font-black text-[#f472b6] uppercase tracking-widest">Major</h2>
+          </div>
+          <h3 className="text-xl font-bold mb-3">전공</h3>
+          <div className="bg-[#fff1f2] px-4 py-3 rounded-xl border border-[#ffe4e6] mb-4">
+            <p className="text-sm font-bold text-[#be123c]">벤처중소기업학과</p>
+          </div>
+          <p className="text-[11px] leading-relaxed text-[#918181] font-medium">
+            Soongsil University<br />
+            Entrepreneurship & Small Business
+          </p>
+        </section>
+
+        {/* 관심사 카드 */}
+        <section className="flex-1 bg-white rounded-2xl shadow-sm border border-[#fee2e2] p-8 transition-transform hover:scale-[1.02]">
+          <div className="flex items-center gap-2 mb-6">
+            <span className="p-2 bg-[#fff1f2] rounded-lg">🔥</span>
+            <h2 className="text-[10px] font-black text-[#f472b6] uppercase tracking-widest">Interests</h2>
+          </div>
+          <h3 className="text-xl font-bold mb-4">관심사</h3>
+          <div className="flex flex-wrap gap-2">
+            {['#윤리경영', '#사회적벤처', '#기업전략', '#심리학', '#넛지이론'].map((tag) => (
+              <span key={tag} className="text-[11px] text-[#fb7185] bg-white px-2 py-1 rounded-md border border-[#fce7e7] font-semibold">
+                {tag}
+              </span>
+            ))}
+          </div>
+        </section>
       </div>
+
+      <footer className="mt-4 text-[10px] text-[#d1c2c2] tracking-[0.4em] font-light">
+        © 2026 SEOYOON ARCHIVE.
+      </footer>
     </main>
   );
 }
